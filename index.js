@@ -4,7 +4,11 @@ const bodyParser = require("body-parser");
 
 
 // View engine
-app.set('view engine', 'ejs');+
+app.set('view engine', 'ejs');
+
+
+// Static
+app.use(express.static('public'));
 
 
 //Body parser
