@@ -1,13 +1,19 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 
 
 // View engine
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');+
+
+
+//Body parser
+app.use(bodyParser.urlencoded({extends: false}));
+app.use(bodyParser.json());
 
 
 app.get("/", (req, res) => {
-    res.send("Bem vindo ao meu site!");
+    res.render("index");
 })
 
 
