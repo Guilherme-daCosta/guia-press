@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const connection = require("./database/database");
+const connection = require("./database/database.js");
 
 
 // View engine
@@ -13,7 +13,7 @@ app.use(express.static('public'));
 
 
 //Body parser
-app.use(bodyParser.urlencoded({extends: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 
@@ -23,9 +23,9 @@ connection
     .then(() => {
         console.log("Conexão feita com sucesso!");
     })
-    .cath((error) => {
+    .catch((error) => {
         console.log(error);
-    })
+    });
 
 
 app.get("/", (req, res) => {
