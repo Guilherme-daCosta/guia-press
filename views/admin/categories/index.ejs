@@ -18,16 +18,16 @@
         <tbody>
             <% categories.forEach(category => { %>
                 <tr>
-                    <th><%= category.id %></th>
-                    <th><%= category.title %></th>
-                    <th><%= category.slug %></th>
-                    <th>
+                    <td><%= category.id %></td>
+                    <td><%= category.title %></td>
+                    <td><%= category.slug %></td>
+                    <td>
                         <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning">Editar</a>
                         <form method="post" action="/categories/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
                             <input type="hidden" name="id" value="<%= category.id %>">
                             <button class="btn btn-danger">Deletar</button>
                         </form>                        
-                    </th>
+                    </td>
                 </tr>
             <% }) %>
         </tbody>
@@ -38,7 +38,7 @@
 <script>
     function confirmarDelecao(event, form){
         event.preventDefault();
-        let decisao = confirm("Você quer deletar esta categoria?")
+        let decisao = confirm("Você quer deletar esta Categoria?")
         if (decisao) {
             form.submit();
         } 
