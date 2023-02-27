@@ -5,7 +5,11 @@ const Article = require("./Article");
 const slugify = require("slugify");
 
 router.get("/admin/articles", (req, res) => {
-    res.render("admin/articles/index.ejs");
+    Article.findAll({
+        include: [{ model: Category }]
+    }).then(articles => {
+        res.render("admin/articles/index.ejs", { articles: articles });
+    });
 });
 
 
