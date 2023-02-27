@@ -12,7 +12,5 @@ const Category = connection.define('categories', {
     } 
 });
 
-Article.sync({ force: true });
-
 
 module.exports = Category;

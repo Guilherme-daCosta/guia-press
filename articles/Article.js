@@ -21,7 +21,5 @@ const Article = connection.define('articles', {
 Category.hasMany(Article); // UMA categoria tem MUITOS artigos - RELACIONAMENTO 1-P-N
 Article.belongsTo(Category); // UM artigo pertence a UMA categoria - RELACIONAMENTO 1-P-1
 
-Article.sync({ force: true });
-
 
 module.exports = Article;
