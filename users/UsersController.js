@@ -5,12 +5,14 @@ const bcrypt = require("bcryptjs");
 
 
 router.get("/admin/users", (req, res) => {
-    res.send("Listagem de usuários");
+    User.findAll().then(users => {
+        res.render("admin/users/index.ejs", {users: users});
+    })
 });
 
 
 router.get("/admin/users/create", (req, res) =>  {
-    res.render("admin/users/create");
+    res.render("admin/users/create.ejs");
 });
 
 
