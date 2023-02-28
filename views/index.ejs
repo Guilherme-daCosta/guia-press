@@ -1,7 +1,37 @@
 <%- include('partials/header.ejs') %>
+<%- include('partials/homeNavbar.ejs') %>
 
 <body>
-    <h1>Ola mundo</h1>
+    <div class="container">
+        
+        <hr>
+        <div class="jumbotron">
+            <h1 class="display-4">Bem vindo!</h1>
+            <p class="lead">Este é um simples blog criado para testar meus conhecimentos principalmente em Back-end.</p>
+            <hr class="my-4">
+            <p>Blog criado para aperfeiçoamento de meu conhecimento em Back-end que é minha principal stack. <br><br></p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="https://github.com/Guilherme-daCosta/guia-press" role="button" target="_blank">Repositório</a>
+            </p>
+        </div>
+        <hr>
+        <% articles.forEach(article => { %>
+            <div class="card">
+                <div class="card-header">
+                    <h2><%= article.title %></h2>
+                </div>
+                <div class="card-body">
+                    <a href="/<%= article.slug %>" class="btn btn-primary">Ler Artigo</a>
+                </div>
+            </div><br>
+        <% }) %>
+        <div class="row">
+            <div class="col col-12">
+                <a href="/articles/page/2" style="float: right;">Proxima página >>></a>
+            </div>
+        </div>
+        <hr>
+    </div>
 </body>
 
 <%- include('partials/footer.ejs') %>
