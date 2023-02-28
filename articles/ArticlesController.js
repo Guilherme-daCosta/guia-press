@@ -3,8 +3,10 @@ const router = express.Router();
 const Category = require("../categories/Category");
 const Article = require("./Article");
 const slugify = require("slugify");
+const adminAuth = require("../middlewares/adminAuth");
 
-router.get("/admin/articles", (req, res) => {
+
+router.get("/admin/articles", adminAuth, (req, res) => {
     Article.findAll({
         include: [{ model: Category }]
     }).then(articles => {
@@ -13,7 +15,7 @@ router.get("/admin/articles", (req, res) => {
 });
 
 
-router.get("/admin/articles/new", (req, res) => {
+router.get("/admin/articles/new", adminAuth, (req, res) => {
     Category.findAll().then(categories => {
         res.render("admin/articles/new.ejs", {categories: categories})
     })    
@@ -61,7 +63,7 @@ router.post("/articles/delete", (req, res) => {
 });
 
 
-router.get("/admin/articles/edit/:id", (req, res) => {
+router.get("/admin/articles/edit/:id", adminAuth, (req, res) => {
     let id = req.params.id;
 
     Article.findByPk(id).then(article => {
