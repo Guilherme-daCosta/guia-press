@@ -20,6 +20,7 @@
     "express-session": "^1.17.3",
     "mysql2": "^3.1.2",
     "sequelize": "^6.29.0",
-    "slugify": "^1.6.5"
+    "slugify": "^1.6.5",
+    "standard": "^17.0.0"
   }
 }
